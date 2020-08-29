@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解析结果展示</title>
+    <!--<link rel="stylesheet" href="../template/html_parser/css/zTreeStyle.css" type="text/css">-->
+    <!--<script type="text/javascript" src="../template/html_parser/js/jquery-1.4.4.min.js"></script>-->
+    <!--<script type="text/javascript" src="../template/html_parser/js/jquery.ztree.core.js"></script>-->
+    <link rel="stylesheet" href="/static/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.ztree.core.js"></script>
+
+    <SCRIPT type="text/javascript">
+        var setting = {	};
+
+        var zNodes =[
+            {{ structure|tojson }}
+
+        ];
+        // alert(zNodes)
+        $(document).ready(function(){
+            $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        });
+        //-->
+    </SCRIPT>
+</head>
+<body style="padding: 0px;margin: 0px">
+    <div style="width: 100%;border: 1px solid red;overflow: hidden;min-height: 1000px">
+        <div style="float: left;width: 49%;border: 1px solid blue;">
+            <h1>html解析后输出结果</h1>
+            <iframe srcdoc="{{html_show}}" width="100%" style="min-height: 800px"></iframe>
+        </div>
+        <div style="float: right;width: 49%;border: 1px solid green;min-height: 990px">
+            <h1>html结构输出</h1>
+            <div width="100%" style="min-height: 800px;max-height: 1000px;overflow: scroll">
+
+                <div class="zTreeDemoBackground left">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

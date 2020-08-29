@@ -1,0 +1,12 @@
+*.pyc
+*.log
+.idea/
+venv/*
+files/*.*
+nohup.out
+*/.DS_Store
+MyTools/data/mysql/*
+test/
+tools/utils/files/*
+MyTools/data/idps/markdown/*.md
+template/idps/markdown/*.md

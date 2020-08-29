@@ -1,0 +1,39 @@
+[
+  {
+    "id": "6184fdcd39aa4a9f8629efde5ff2e48e",
+    "pId": 0,
+    "name": "img_server",
+    "target": "show_iframe"
+  },
+  {
+    "id": "a22bbe2ae1104b0390fb6d023c41071f",
+    "pId": "6184fdcd39aa4a9f8629efde5ff2e48e",
+    "name": "wujunjie",
+    "target": "show_iframe"
+  },
+  {
+    "id": "5a9a41f1e1ed4c138eee536780af96ac",
+    "pId": "a22bbe2ae1104b0390fb6d023c41071f",
+    "name": "test1",
+    "target": "show_iframe"
+  },
+  {
+    "id": "8ada44eaff464814ab272b438baf0d0b",
+    "pId": "5a9a41f1e1ed4c138eee536780af96ac",
+    "name": "test2",
+    "target": "show_iframe"
+  },
+  {
+    "id": "bc00cf38480e43d8a7f7f692a2d69682",
+    "pId": "a22bbe2ae1104b0390fb6d023c41071f",
+    "name": "2.png",
+    "url": "/static/img_server/wujunjie/2.png",
+    "target": "show_iframe"
+  },
+  {
+    "id": "2b1be4e2b3894b038637cc254a6481e5",
+    "pId": "6184fdcd39aa4a9f8629efde5ff2e48e",
+    "name": "jingjian",
+    "target": "show_iframe"
+  }
+]
