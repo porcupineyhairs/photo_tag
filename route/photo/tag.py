@@ -54,7 +54,25 @@ class Tag(object):
         :param tag_name:
         :return:
         """
-        pass
+        conn = pymysql.connect(host=MYSQL_ADDRESS, port=MYSQL_PORT, user=MYSQL_USERNAME, password=MYSQL_PASSWORD,
+                               database=MYSQL_DATABASE, charset="utf8")
+        cursor = conn.cursor()
+
+        sql = "SELECT * FROM `tag` where status=%s;"
+        field_values = (Tag.SHOW)
+        cursor.execute(sql, field_values)
+        result = cursor.fetchall()
+        conn.close()
+        result2 = list()
+        for each in result:
+            result2.append(dict(
+                id=each[0],
+                tag_name=each[1],
+                status=each[2],
+                create_time=each[3],
+                update_time=each[4]
+            ))
+        return result2
 
 
     def delete(self):
@@ -76,9 +94,14 @@ class Tag(object):
 
 
 if __name__ == "__main__":
-    tag1 = Tag(tag_name="人像")
-    tag2 = Tag(id=tag1.id)
-    print(tag2)
-    tag2.delete()
-    tag3 = Tag(id=tag1.id)
-    print(tag3)
+    print(Tag.search())
+    # tag1 = Tag(tag_name="tag1")
+    # tag1 = Tag(tag_name="tag2")
+    # tag1 = Tag(tag_name="tag3")
+    # tag1 = Tag(tag_name="tag4")
+    # tag1 = Tag(tag_name="tag5")
+    # tag2 = Tag(id=tag1.id)
+    # print(tag2)
+    # tag2.delete()
+    # tag3 = Tag(id=tag1.id)
+    # print(tag3)

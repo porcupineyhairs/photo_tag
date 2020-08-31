@@ -6,7 +6,6 @@ import os, sys, re, json, traceback
 from flask import Flask, request, send_file, render_template, send_from_directory
 from tools.utils import simple_utils as utils
 from tools.html_parser.my_parser import MyParser
-from tools.idps.utils.funcs import download_pdf_by_task_ids,download_pdf_by_file_name,get_field_id_name_map,get_tagged_content,get_rich_content,get_field_id_name_map_tree
 from flask_restful import Resource,Api
 from flask import make_response
 import _locale
@@ -95,6 +94,8 @@ def markdown_show(path):
 
 
 # api.add_resource(Word2Html, '/tools/word2html')
+from route.photo.tag_route import TagRoute
+api.add_resource(TagRoute, '/tag')
 
 
 

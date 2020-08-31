@@ -1,3 +1,5 @@
 #word转html,将doc/docx转成html，部分doc文档转docx可能失败,/tools/word2html
-
+图片查看,查看所有上传的图片,/image
+图片上传,上传新的图片,/image_upload
+tag管理,管理tag列表,/tag
 

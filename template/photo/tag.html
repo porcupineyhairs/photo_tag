@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tag展示页</title>
+    <script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+    <script>
+        function add() {
+            add = $("#add").val()
+            if (add==""){
+                alert("新增tag名称不可为空")
+            }else{
+                location="/tag?add="+add
+            }
+        }
+    </script>
+
+</head>
+<body>
+    tag名称<input id="add"/>  <button onclick="add()">提交</button>
+    <br/>
+    <table border="1px solid black" cellpadding="0">
+        <thead>
+<!--            <th>id</th>-->
+            <th>tag名称</th>
+            <th>创建时间</th>
+            <th>操作</th>
+        </thead>
+        {% for each in result %}
+            <tr>
+<!--                <td>{{ each.id }}</td>-->
+                <td>{{ each.tag_name }}</td>
+                <td>{{ each.create_time }}</td>
+                <td><a href="/tag?delete={{ each.id }}">删除</a></td>
+            </tr>
+        {% endfor %}
+
+</body>
+</html>
