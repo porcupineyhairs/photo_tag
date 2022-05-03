@@ -9,6 +9,7 @@ from tools.html_parser.my_parser import MyParser
 from flask_restful import Resource,Api
 from flask import make_response
 import _locale
+from werkzeug.utils import safe_join
 _locale._getdefaultlocale = (lambda *args:['en_US', 'utf8'])
 
 
@@ -52,38 +53,39 @@ def static_file(tool_name, file_type, file_name):
 
 @app.route('/static/js/<path:path>', methods=['GET'])
 def js_file(path):
-    return send_file('template/js/{0}'.format(path))
+    return send_file(safe_join('template/js/',path))
 
 @app.route('/static/css/<path:path>', methods=['GET'])
 def css_file(path):
-    return send_file('template/css/{0}'.format(path))
+    return send_file(safe_join('template/css/',path))
 
 @app.route('/static/img/<path:path>', methods=['GET'])
 def img_file(path):
-    return send_file('template/img/{0}'.format(path))
+    return send_file(safe_join('template/img/',path))
 
 @app.route('/static/images/<path:path>', methods=['GET'])
 def images_file(path):
-    return send_file('template/img/{0}'.format(path))
+    return send_file(safe_join('template/img/',path))
 
 @app.route('/static/img_server/<path:path>', methods=['GET'])
 def imgserver_file(path):
-    if os.path.isfile('template/img_server/{0}'.format(path)):
-        return send_file('template/img_server/{0}'.format(path))
+    f = safe_join('template/img_server/',path)
+    if os.path.isfile(f):
+        return send_file()
     else:
         return "该路径为文件夹路径"
 
 @app.route('/static/fonts/<path:path>', methods=['GET'])
 def fonts_file(path):
-    return send_file('template/fonts/{0}'.format(path))
+    return send_file(safe_join('template/fonts/',path))
 
 @app.route('/static/md/<path:path>', methods=['GET'])
 def md_file(path):
-    return send_file('template/idps/markdown/{0}'.format(path))
+    return send_file(safe_join('template/idps/markdown/',path))
 
 @app.route('/staticfile/<path:path>', methods=['GET'])
 def staticfile(path):
-    return send_file('template/{0}'.format(path))
+    return send_file(safe_join('template',path))
 
 
 @app.route('/markdown/<path:path>', methods=['GET'])
